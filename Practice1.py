@@ -99,3 +99,4 @@ plt.xticks(range(x.shape[1]),x.columns.values,rotation=60,ha='left')
 plt.xlabel('Features')
 plt.ylabel('Principal Component')
 plt.show()
+# 篠原　拓海　侵入成功
