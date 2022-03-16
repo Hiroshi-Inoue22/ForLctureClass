@@ -3,7 +3,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os
 
-os.chdir('C:/Users\井上　大士\PycharmProjects\pythonProject')
+
+url='C:/Users\井上　大士\PycharmProjects\pythonProject'
+os.chdir(url)
 
 df = pd.read_csv('titanic.train.csv')
 
@@ -11,6 +13,7 @@ print(df.head(10))
 print(df.info())
 
 df['Age'] = df['Age'].fillna(df['Age'].mean())
+#fillnaメソッドはリスト内が数値でない場合にその符号などを返す
 df['Embarked'] = df['Embarked'].fillna(df['Embarked'].mode()[0])
 
 print('motimoti;',df['Embarked'].mode()[0])
@@ -37,7 +40,7 @@ for col in num_features:
     x[col] = Sta_S.fit_transform(np.array(df[col].values).reshape(-1,1))
 
 print(x.head())
-
+#PCAは主成分分析
 from sklearn.decomposition import PCA
 pca = PCA()
 
@@ -59,8 +62,8 @@ from mpl_toolkits.mplot3d import Axes3D
 def plot_2d(x,y):
     plt.plot(x[:,0][y==0],x[:,1][y==0],'bo',ms=5)
     plt.plot(x[:,0][y==1],x[:,1][y==1],'r^',ms=5)
-    plt.xlabel("First Principal Componet")
-    plt.ylabel("Second Principal Componet")
+    plt.xlabel("大壱主成分")
+    plt.ylabel("大弐種成分")
     plt.legend(['Not Survived','Survived'],loc='best')
 
 def plot_3d(x,y):
